@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 class="text-center">Editar Restaurante</h2>
+    <hr /><br />
+    <form class="form-horizontal" (submit)="editar($event)">
+        <div class="row col-md-offset-3">
+                <div class="form-group">
+                        <label class="col-md-1 text-right">ID</label>
+                        <div class="col-md-4">
+                            <input name="id" [(ngModel)]="restaurante.RestauranteID" type="text" class="form-control" value="{{restaurante.IDRestaurante}}" readonly="true">
+                        </div>
+                    </div>
+                <div class="form-group">
+             </div>
+                <div class="form-group">
+                        <label class="col-md-1 text-right">Nome</label>
+                        <div class="col-md-4">
+                          <input name="nome" [(ngModel)]="restaurante.NomeRestaurante" type="text" class="form-control" value="{{restaurante.NomeRestaurante}}">
+                        </div>
+                </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-3 col-md-offset-5">
+                <a [routerLink]="['/restaurante/listarrestaurante']"><button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Voltar</button></a>
+                <button type="submit" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Alterar</button>
+            </div>
+        </div>
+
+        <br />
+
+
+        <p *ngIf="mensagem.length" class="alert alert-success">{{mensagem}}</p>
+        
+    </form>
+</div>

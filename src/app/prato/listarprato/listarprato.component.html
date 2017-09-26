@@ -1,0 +1,51 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Pratos</h1>
+                <hr /><br />
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-1">
+                <a [routerLink]="['/prato/cadastrarprato']"><button type="button" class="btn btn-info"><i class="fa fa-plus-square" aria-hidden="true"></i> Cadastrar</button></a>
+            </div>
+            <div class="col-md-5">
+                <input class="form-control" #textoPrato (keyup)="0" placeholder="Consultar prato" />
+    
+            </div>
+        </div>
+    
+        <br />
+    
+        <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-condensed">
+                        <tbody>
+                            <tr class="active">
+                                <th title="codigo" class="text-center">ID</th>
+                                <th>Restaurante</th>
+                                <th>Prato</th>
+                                <th>Preço</th>
+                                
+                            </tr>
+                            <tr *ngFor="let prato of (pratos | filtroPrato: textoPrato.value)">
+                                <td class="text-center">{{prato.PratoID}}</td>
+                                <td>{{prato.NomeRestaurante}}</td>
+                                <td>{{prato.NomePrato}}</td>
+                                <td>{{prato.PrecoPrato}}</td>
+                                
+                                <td class="text-center">
+                                    <a [routerLink]="['/prato/editarprato', prato.PratoID]"><button class="btn btn-info">Editar<i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                                    <button class="btn btn-danger" (click)="excluir(prato)"><i class="fa fa-minus" aria-hidden="true">Excluir</i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

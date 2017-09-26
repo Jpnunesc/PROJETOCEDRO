@@ -1,0 +1,52 @@
+<div class="container">
+    <h2 class="text-center">Atualizar Prato</h2>
+   <hr /><br />
+    <form class="form-horizontal" (submit)="editar($event)">
+        <div class="row col-md-offset-2">
+            <div class="form-group">
+                <label class="col-md-2 text-right">ID</label>
+                <div class="col-md-5">
+                    <input name="id" [(ngModel)]="prato.PratoID" type="text" class="form-control" value="{{prato.IDPrato}}" readonly="true">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 text-right">Nome</label>
+                <div class="col-md-5">
+                    <input name="nome" [(ngModel)]="prato.NomePrato" type="text" class="form-control" value="{{prato.NomePrato}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 text-right">Preço</label>
+                <div class="col-md-5">
+                    <input name="preco" [(ngModel)]="prato.PrecoPrato" type="text" class="form-control" value="{{prato.PrecoPrato}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 text-right">Restaurante</label>
+                <div class="col-md-5">
+                    <select name="Restaurantes" [(ngModel)]="prato.RestauranteID" class="form-control">
+                        <option *ngFor="let rest of restaurante" [ngValue]="rest.RestauranteID">{{rest.NomeRestaurante}}</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-3 col-md-offset-6">
+                <a [routerLink]="['/prato/listarprato']"><button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Voltar</button></a>
+                <button type="submit" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
+            </div>
+        </div>
+
+        <br />
+
+        <p *ngIf="mensagem.length" class="alert alert-success">{{mensagem}}</p>
+
+    </form>
+</div>

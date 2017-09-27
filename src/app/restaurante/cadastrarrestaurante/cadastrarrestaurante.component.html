@@ -6,7 +6,15 @@
             <div class="form-group">
                 <label class="col-md-1 text-right">Nome</label>
                 <div class="col-md-3">
-                    <input name="nome" [(ngModel)]="restaurante.NomeRestaurante" type="text" class="form-control" value="" placeholder="Digite nome para restaurante..">
+                    <input required 
+                    #nome="ngModel"
+                    name="nome"
+                    [(ngModel)]="restaurante.NomeRestaurante" 
+                    type="text" class="form-control" value="" 
+                    placeholder="Digite nome para restaurante..">
+                    <span *ngIf="nome.invalid"class="form-control alert-danger">
+                            Nome obrigatorio
+                        </span>
                 </div>
             </div>
         </div>

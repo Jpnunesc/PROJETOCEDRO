@@ -23,6 +23,8 @@ import { PratoComponent } from './prato/prato.component';
  
 
 import { InicialComponent } from './inicial/inicial.component';
+import { PromocaoComponent } from './promocao/promocao.component';
+import { ListagemComponent } from './promocao/listagem/listagem.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { InicialComponent } from './inicial/inicial.component';
     ListarpratoComponent,
     CadastrarpratoComponent,
     EditarpratoComponent,
-    FiltroPrato
+    FiltroPrato,
+    PromocaoComponent,
+    ListagemComponent
    
     
   ],

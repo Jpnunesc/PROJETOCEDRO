@@ -6,14 +6,29 @@
                 <div class="form-group">
                     <label class="col-md-2 text-right">Nome</label>
                     <div class="col-md-5">
-                        <input name="nome" [(ngModel)]="prato.NomePrato" type="text" class="form-control" value="">
+                        <input required 
+                        #nome="ngModel"
+                        name="nome"
+                         [(ngModel)]="prato.NomePrato" 
+                         type="text" class="form-control" 
+                         value="">
+                         <span *ngIf="nome.invalid"class="form-control alert-danger">
+                                Nome obrigatorio
+                            </span>
                     </div>
                 </div>
     
                 <div class="form-group">
                     <label class="col-md-2 text-right">Preço</label>
                     <div class="col-md-5">
-                        <input name="preco" [(ngModel)]="prato.PrecoPrato" type="text" class="form-control" value="">
+                        <input required
+                        name="preco"
+                         [(ngModel)]="prato.PrecoPrato"
+                          type="text" class="form-control"
+                           value="">
+                        <span *ngIf="nome.invalid"class="form-control alert-danger">
+                                preço obrigatorio
+                            </span>
                     </div>
                 </div>
     
